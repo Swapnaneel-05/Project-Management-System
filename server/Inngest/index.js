@@ -1,13 +1,15 @@
 import { Inngest } from "inngest";
-import prisma from "../configs/prisma.js";
+import { prisma } from "../configs/prisma.js";
 
 // Create a client to send and receive events
 export const inngest = new Inngest({ id: "Group13-Project" });
 
 //User Create
 const syncUserCreation = inngest.createFunction(
-  { id: "sync-user-from-clerk" },
-  { event: "clerk/user.created" },
+  {
+    id: "sync-user-from-clerk",
+    triggers: [{ event: "clerk/user.created" }],
+  },
   async ({ event }) => {
     const { data } = event;
     await prisma.user.create({
@@ -23,8 +25,10 @@ const syncUserCreation = inngest.createFunction(
 
 //Delete
 const syncUserDeletion = inngest.createFunction(
-  { id: "delete-user-from-clerk" },
-  { event: "clerk/user.deleted" },
+  {
+    id: "delete-user-from-clerk",
+    triggers: [{ event: "clerk/user.deleted" }],
+  },
   async ({ event }) => {
     const { data } = event;
     await prisma.user.delete({
@@ -37,8 +41,10 @@ const syncUserDeletion = inngest.createFunction(
 
 // Update
 const syncUserUpdation = inngest.createFunction(
-  { id: "update-user-from-clerk" },
-  { event: "clerk/user.updated" },
+  {
+    id: "update-user-from-clerk",
+    triggers: [{ event: "clerk/user.updated" }],
+  },
   async ({ event }) => {
     const { data } = event;
     await prisma.user.update({
