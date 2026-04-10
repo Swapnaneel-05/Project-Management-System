@@ -25,7 +25,9 @@ const AddProjectMember = ({ isDialogOpen, setIsDialogOpen }) => {
     if (!isDialogOpen) return null;
 
     return (
+       
         <div className="fixed inset-0 bg-black/20 dark:bg-black/50 backdrop-blur flex items-center justify-center z-50">
+            
             <div className="bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-800 rounded-xl p-6 w-full max-w-md text-zinc-900 dark:text-zinc-200">
                 {/* Header */}
                 <div className="mb-4">
@@ -37,15 +39,18 @@ const AddProjectMember = ({ isDialogOpen, setIsDialogOpen }) => {
                             Adding to Project: <span className="text-blue-600 dark:text-blue-400">{project.name}</span>
                         </p>
                     )}
+               
                 </div>
 
                 {/* Form */}
+                
                 <form onSubmit={handleSubmit} className="space-y-4">
                     {/* Email */}
                     <div className="space-y-2">
                         <label htmlFor="email" className="text-sm font-medium text-zinc-900 dark:text-zinc-200">
                             Email Address
                         </label>
+                        
                         <div className="relative">
                             <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500 dark:text-zinc-400 w-4 h-4" />
                             {/* List All non project members from current workspace */}
