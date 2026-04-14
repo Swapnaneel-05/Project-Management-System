@@ -5,10 +5,10 @@ import ProjectOverview from '../components/ProjectOverview'
 import RecentActivity from '../components/RecentActivity'
 import TasksSummary from '../components/TasksSummary'
 import CreateProjectDialog from '../components/CreateProjectDialog'
-
+import { useUser} from '@clerk/react'
 const Dashboard = () => {
 
-    const user = { fullName: 'User' }
+    const user = useUser()
     const [isDialogOpen, setIsDialogOpen] = useState(false)
 
     return (

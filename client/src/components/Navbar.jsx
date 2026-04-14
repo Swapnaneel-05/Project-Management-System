@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { toggleTheme } from '../features/themeSlice'
 import { MoonIcon, SunIcon } from 'lucide-react'
 import { assets } from '../assets/assets'
+import { UserButton } from '@clerk/react';
 
 const Navbar = ({ setIsSidebarOpen }) => {
 
