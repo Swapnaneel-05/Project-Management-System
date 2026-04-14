@@ -43,7 +43,7 @@ const CreateProjectDialog = ({ isDialogOpen, setIsDialogOpen }) => {
         finally{
             setIsSubmitting(false)
         }
-    };
+
         
     };
 
